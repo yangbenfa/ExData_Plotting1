@@ -1,5 +1,5 @@
 
-
+#第2个代码及图形
 #读取数据（2007年2月1日与2007年2月2日的数据）
 data<-read.csv2("household_power_consumption.txt",stringsAsFactors=FALSE,skip=66636,nrows=2880)
 
@@ -28,9 +28,6 @@ plot(data$datetime,data$Global_active_power,type="l",ylab="Global Active Power (
 #保存图形文件
 dev.copy(png, file = "plot2.png") 
 dev.off() 
-
-
-
 
 
 
