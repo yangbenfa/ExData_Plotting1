@@ -1,5 +1,5 @@
 
-
+#第一个代码及图形
 #读取数据（2007年2月1日与2007年2月2日的数据）
 data<-read.csv2("household_power_consumption.txt",stringsAsFactors=FALSE,skip=66636,nrows=2880)
 
@@ -30,4 +30,4 @@ dev.copy(png, file = "plot1.png")
 dev.off() 
 
 
-#第2个代码及图形
+
