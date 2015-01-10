@@ -1,5 +1,5 @@
 
-
+#第3个代码及图形
 #读取数据（2007年2月1日与2007年2月2日的数据）
 data<-read.csv2("household_power_consumption.txt",stringsAsFactors=FALSE,skip=66636,nrows=2880)
 
@@ -21,11 +21,11 @@ for(i in 3:9)
 }
 
 #绘图
-plot(x=data$datetime,y=data$Sub_metering_1,type="l",ylab="Global Active Power (kilowatts)",
+plot(x=data$datetime,y=data$Sub_metering_1,type="l",ylab="Energy sub metering",
      xlab=" ")
 lines(x=data$datetime,y=data$Sub_metering_2,col="red")
 lines(x=data$datetime,y=data$Sub_metering_3,col="blue")
-legend("topright", pch = "▁", col = c("black","blue", "red"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+legend("topright", pch ="__", col = c("black","blue", "red"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 #保存图形文件
 dev.copy(png, file = "plot3.png") 
 dev.off() 
