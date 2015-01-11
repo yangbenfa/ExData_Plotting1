@@ -1,31 +1,32 @@
 
-#第一个代码及图形
-#读取数据（2007年2月1日与2007年2月2日的数据）
+#��1��ͼ�εĻ�ͼ����
+#��ȡ���ݣ�2007��2��1����2007��2��2�յ����ݣ�
 data<-read.csv2("household_power_consumption.txt",stringsAsFactors=FALSE,skip=66636,nrows=2880)
 
-#给数据框的每一列命名
+#�����ݿ��ÿһ������
 names(data)<-c("Date","Time","Global_active_power","Global_reactive_power",
                "Voltage","Global_intensity","Sub_metering_1","Sub_metering_2","Sub_metering_3")
-#将Date和Time变量转换为R中的Date/Time类
+#��Date��Time����ת��ΪR�е�Date/Time��
 
-#合并Date和Time为一个字段datetime
+#�ϲ�Date��TimeΪһ���ֶ�datetime
 data$datetime<- paste(data$Date, data$Time)
 
-#完成转换（转换为R中的Date/Time类）
+#���ת����ת��ΪR�е�Date/Time�ࣩ
 data$datetime<- strptime(data$datetime, "%d/%m/%Y %H:%M:%S")
-#转换数据类型
+#ת����������
 for(i in 3:9)
 {
-data[,i]<-as.numeric(data[,i])
-
+        data[,i]<-as.numeric(data[,i])
+        
 }
 
-#绘图
-
+#��ͼ
+par(cex.axis=0.7,cex.lab=0.7,cex.main = 0.8)
 hist(data$Global_active_power,col="red",xlab="Global Active Power (kilowatts)",
-     main = "Global Active Power",ylim = c(0,1200))
+     main = "Global Active Power",ylim = c(0,1200),)
 
-#保存图形文件
+
+#����ͼ���ļ�
 dev.copy(png, file = "plot1.png") 
 dev.off() 
 
